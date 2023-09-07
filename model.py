@@ -325,9 +325,14 @@ def build_transformer(
         )
         decoder_blocks.append(decoder_block)
 
+    e1, e2, e3 = encoder_blocks
+    d1, d2, d3 = decoder_blocks
+    encoder_blocks1 = [e1, e2, e3, e3, e2, e1]
+    decoder_blocks1 = [d1, d2, d3, d3, d2, d1]
+
     # Create the encoder and decoder
-    encoder = Encoder(nn.ModuleList(encoder_blocks))
-    decoder = Decoder(nn.ModuleList(decoder_blocks))
+    encoder = Encoder(nn.ModuleList(encoder_blocks1))
+    decoder = Decoder(nn.ModuleList(decoder_blocks1))
 
     # Create the projection layer
     projection_layer = ProjectionLayer(d_model, tgt_vocab_size)
