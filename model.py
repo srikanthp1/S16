@@ -303,7 +303,7 @@ def build_transformer(
 
     # Create the encoder blocks
     encoder_blocks = []
-    for _ in range(N):
+    for _ in range(N//2):
         encoder_self_attention_block = MultiHeadAttentionBlock(d_model, h, dropout)
         feed_forward_block = FeedForwardBlock(d_model, d_ff, dropout)
         encoder_block = EncoderBlock(
@@ -313,7 +313,7 @@ def build_transformer(
 
     # Create the decoder blocks
     decoder_blocks = []
-    for _ in range(N):
+    for _ in range(N//2):
         decoder_self_attention_block = MultiHeadAttentionBlock(d_model, h, dropout)
         decoder_cross_attention_block = MultiHeadAttentionBlock(d_model, h, dropout)
         feed_forward_block = FeedForwardBlock(d_model, d_ff, dropout)
