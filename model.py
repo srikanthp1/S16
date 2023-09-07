@@ -325,6 +325,8 @@ def build_transformer(
         )
         decoder_blocks.append(decoder_block)
 
+    print('encoder len', len(encoder_blocks))
+    print('decoder len', len(decoder_blocks))
     e1, e2, e3 = encoder_blocks
     d1, d2, d3 = decoder_blocks
     encoder_blocks1 = [e1, e2, e3, e3, e2, e1]
