@@ -192,7 +192,7 @@ def get_ds(config):
     print('after filtering english phrases less than french sentences in great length : ', len(filtered_sorted_train_ds))
     
     train_ds = BilingualDataset(
-        train_ds_raw,
+        filtered_sorted_train_ds,
         tokenizer_src,
         tokenizer_tgt,
         config["lang_src"],
